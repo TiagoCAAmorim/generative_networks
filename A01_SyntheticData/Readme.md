@@ -62,11 +62,25 @@ Dados os resultados da análise de redução de dimensionalidade, foi primeiro a
 
 Foi feita uma rápida otimização do número de Gaussianas utilizando BIC como critério. O número _ótimo_ foi de 27 Gaussianas. Gráficos de densidade marginal dos dados reais e dos dados sintéticos mostraram boa coerência.
 
-Os dados de idade e sexo foram agrupados aos resultados dos exames nesta análise, de forma que também são gerados para as amostras sintéticas.
+Os dados de idade e sexo foram agrupados aos resultados dos exames nesta análise, de forma que também são gerados para as amostras sintéticas (arquivo **data_syntheic.csv**).
 
 ![DensidadeGM](./fig/GM_dens_5.png)
 
-**Figura 3:** Curvas de densidade dos dados originais e dados sintéticos para Neutrófilos %.
+**Figura 3:** Curvas de densidade dos dados originais e dados sintéticos gerados com GM para Neutrófilos %.
+
+### Parte D: Auto-Encoder Variacional
+
+Foi feita uma segunda tentativa de gerar uma base de dados de amostras sintéticas. Foram aplicadas as ideias do **Auto-Encoder Variacional**. Foi feita uma busca manual por bons hiperparâmetros, e foi observada uma grande dificuldade em equilibrar os pesos e cada função de erro (MSE e KL) para cálculo do gradiente.
+
+O modelo escolhido tem espaço latente de dimensão 5, e conseguiu uma satisfatória reconstrução dos dados de teste. Os resultados das curvas de densidade não foram tão bons quanto o conseguido com a Mistura de Gaussianas.
+
+![ReconstrucaoVAE](./fig/VAE_recon.png)
+
+**Figura 4:** Exemplos de reconstrução dos dados de entrada (dados escalados entre 0 e 1, sintéticos em tracejado).
+
+![DensidadeVAE](./fig/VAE_dens_5.png)
+
+**Figura 5:** Curvas de densidade dos dados originais e dados sintéticos gerados com modelo VAE para Neutrófilos %.
 
 ### Conclusão
 
