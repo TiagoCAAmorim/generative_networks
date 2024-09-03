@@ -62,7 +62,7 @@ A análise com o t-SNE também não indicou quaisquer _clusters_ associados a se
 
 Dados os resultados da análise de redução de dimensionalidade, foi primeiro avaliado o uso de uma abordagem mais simples para a geração de amostras sintéticas: **Mistura de Gaussianas**.
 
-Foi feita uma rápida otimização do número de Gaussianas utilizando BIC como critério. O número _ótimo_ foi de 27 Gaussianas. Gráficos de densidade marginal dos dados reais e dos dados sintéticos mostraram boa coerência.
+Foi feita uma rápida otimização do número de Gaussianas utilizando BIC como critério. O número _ótimo_ foi de 29 Gaussianas. Gráficos de densidade marginal dos dados reais e dos dados sintéticos mostraram boa coerência.
 
 Os dados de idade e sexo foram agrupados aos resultados dos exames nesta análise, de forma que também são gerados para as amostras sintéticas (arquivo **data_syntheic.csv**).
 
