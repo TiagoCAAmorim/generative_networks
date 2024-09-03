@@ -74,7 +74,7 @@ Os dados de idade e sexo foram agrupados aos resultados dos exames nesta anális
 
 Foi feita uma segunda tentativa de gerar uma base de dados de amostras sintéticas. Foram aplicadas as ideias do **Auto-Encoder Variacional**. Foi feita uma busca manual por bons hiperparâmetros, e foi observada uma grande dificuldade em equilibrar os pesos e cada função de erro (MSE e KL) para cálculo do gradiente.
 
-O modelo escolhido tem espaço latente de dimensão 5, e conseguiu uma satisfatória reconstrução dos dados de teste. Os resultados das curvas de densidade não foram tão bons quanto o conseguido com a Mistura de Gaussianas.
+O modelo escolhido tem espaço latente de dimensão 5, e conseguiu uma satisfatória reconstrução dos dados de teste. Os resultados das curvas de densidade não foram tão bons quanto o conseguido com a Mistura de Gaussianas. A qualidade dos resultados foi muito dependente da escala em que os dados foram transformados.
 
 ![ReconstrucaoVAE](./fig/VAE_recon.png)
 
