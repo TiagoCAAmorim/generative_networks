@@ -6,6 +6,8 @@
 
 #### Aluno: Tiago Amorim (100.675)
 
+Repositório: https://github.com/TiagoCAAmorim/generative_networks/tree/A01/A01_SyntheticData
+
 ---
 
 ### Tarefa Proposta
