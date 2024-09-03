@@ -72,17 +72,25 @@ Os dados de idade e sexo foram agrupados aos resultados dos exames nesta anális
 
 ### Parte D: Auto-Encoder Variacional
 
-Foi feita uma segunda tentativa de gerar uma base de dados de amostras sintéticas. Foram aplicadas as ideias do **Auto-Encoder Variacional**. Foi feita uma busca manual por bons hiperparâmetros, e foi observada uma grande dificuldade em equilibrar os pesos e cada função de erro (MSE e KL) para cálculo do gradiente.
+Foi feita uma segunda tentativa de gerar uma base de dados de amostras sintéticas. Foram aplicadas as ideias do **Auto-Encoder Variacional**. Foi feita uma busca manual por bons hiperparâmetros, e foi observada uma grande dificuldade em equilibrar os pesos de cada função de erro (MSE+BCE e KL) para cálculo do gradiente. A função de perda tem três partes: BCE é calculado nos dados de sexo (categórico), MSE com os demais dados e KL nas distribuições do espaço latente. A função de perda tem a seguinte forma:
 
-O modelo escolhido tem espaço latente de dimensão 5, e conseguiu uma satisfatória reconstrução dos dados de teste. Os resultados das curvas de densidade não foram tão bons quanto o conseguido com a Mistura de Gaussianas. A qualidade dos resultados foi muito dependente da escala em que os dados foram transformados.
+$\alpha * MSE + (1-\alpha) * BCE + \beta * KL$
+
+A qualidade dos resultados foi muito dependente da escala em que os dados foram transformados. Foram utilizadas diferentes transformações nos dados (MinMax, Standard e Log) para _facilitar_ o ajuste da rede neural.
+
+![EscalaVAE](./fig/VAE_scale_3.png)
+
+**Figura 4:** Histogramas de Neutrófilos Absoluto na escala original, escala log e revertido à escala original.
+
+O modelo escolhido tem espaço latente de dimensão 5, e conseguiu uma satisfatória reconstrução dos dados de teste. As curvas de densidade dos dados originais e sintéticos estão visualmente próximas. Aparentemente a Mistura de Gaussianas teve resultado melhor.
 
 ![ReconstrucaoVAE](./fig/VAE_recon.png)
 
-**Figura 4:** Exemplos de reconstrução dos dados de entrada (dados escalados entre 0 e 1, sintéticos em tracejado).
+**Figura 5:** Exemplos de reconstrução dos dados de entrada (dados escalados entre 0 e 1).
 
 ![DensidadeVAE](./fig/VAE_dens_5.png)
 
-**Figura 5:** Curvas de densidade dos dados originais e dados sintéticos gerados com modelo VAE para Neutrófilos %.
+**Figura 6:** Curvas de densidade dos dados originais e dados sintéticos gerados com modelo VAE para Neutrófilos %.
 
 ### Conclusão
 
